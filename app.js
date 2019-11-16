@@ -174,12 +174,13 @@ function login(mail, pwd){
 
   function getCommentsByPostId(postId){
 
-    fetch(`http://thesi.generalassemb.ly:8080/post/${postId}/comment`)
+    fetch(`http://localhost:8080/post/comment/${postId}`)
     .then((response) => {
         return response.json();
       })
       .then ((response) => {
-        console.log(response);
+        console.log("im here");
+        console.log(response.postComment[0]);
         // console.log('done');
         // console.log(response.length);
 
@@ -230,13 +231,12 @@ function login(mail, pwd){
           mainDiv.appendChild(hr);
 
              {/* Post Content  */}
-          // <p class="lead">Lorem ipsum</p>
+          
           let postContent = document.createElement("p");
           postContent.className = "lead";
           postContent.innerHTML = postDesc;
 
 
-          // postContent.innerHTML = response[0].post.description;
 
           mainDiv.appendChild(postContent);
 
@@ -292,7 +292,7 @@ function login(mail, pwd){
           //  <!-- Single Comment --> 
           //  <div class="media mb-4">
 
-          for(let i=0; i<response.length; i++){
+          for(let i=0; i<response.postComment.length; i++){
 
           let d4 = document.createElement("div");
           d4.className = "media mb-4"
@@ -307,7 +307,7 @@ function login(mail, pwd){
           //     <h5 class="mt-0">Commenter Name</h5>
           let commenterName = document.createElement("h5");
           commenterName.className = "mt-0"
-          commenterName.innerHTML = response[i].user.username;
+          commenterName.innerHTML = response.postComment[i].username;
 
           // console.log(response[0]);
           // console.log(response[0].user);
@@ -315,14 +315,14 @@ function login(mail, pwd){
           d5.appendChild(commenterName);
 
           let p2 = document.createElement("p");
-          p2.innerHTML = response[i].text;
+          p2.innerHTML = response.postComment[i].text;
           d5.appendChild(p2);
           // loop finishes here
 
-          if(sessionStorage.getItem("userName") === response[i].user.username){
+          if(sessionStorage.getItem("userName") === response[i].username){
              let btn = document.createElement("button");
              btn.innerHTML = "DELETE";
-             btn.id = response[i].id;
+             btn.id = response.postComment[i].id;
              d5.appendChild(btn);
 
              btn.addEventListener("click", function(){
@@ -466,7 +466,7 @@ function createComment(text){
   let postId = sessionStorage.getItem("PostId")
   let bearer_token = sessionStorage.getItem("token")
   let bearer = 'Bearer ' + bearer_token;
-  fetch(`http://thesi.generalassemb.ly:8080/comment/${postId}`, {
+  fetch(`http://localhost:8080/comment/comment/${postId}`, {
     method: 'POST',
 
     headers:{
