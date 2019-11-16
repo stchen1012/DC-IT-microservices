@@ -84,9 +84,12 @@ signUpButton.addEventListener('click', function (event) {
           cardBtn.cardText = response[i].description;
 
 
-          cardBtn.nodeName = response[i].user.userName;
-          cardBtn.value = response[i].user.userName;
-          sessionStorage.setItem("postUserName", response[i].user.userName);
+          // cardBtn.nodeName = response[i].user.userName;
+          // cardBtn.value = response[i].user.userName;
+          cardBtn.nodeName = response[i].username;
+          cardBtn.value = response[i].username;
+          // sessionStorage.setItem("postUserName", response[i].user.userName);
+          sessionStorage.setItem("postUserName", response[i].username);
        
 
 
@@ -99,7 +102,7 @@ signUpButton.addEventListener('click', function (event) {
            let postFooter = document.createElement("div");
            postFooter.id = "post-footer";
            postFooter.className = "card-footer text-muted";
-           postFooter.innerHTML = `created by: ${response[i].user.username}`;
+           postFooter.innerHTML = `created by: ${response[i].username}`;
           
           postsBoard.appendChild(postFooter);
 
