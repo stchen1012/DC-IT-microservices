@@ -319,7 +319,7 @@ function login(mail, pwd){
           d5.appendChild(p2);
           // loop finishes here
 
-          if(sessionStorage.getItem("userName") === response[i].username){
+          if(sessionStorage.getItem("userName") === response.postComment[i].username){
              let btn = document.createElement("button");
              btn.innerHTML = "DELETE";
              btn.id = response.postComment[i].id;
