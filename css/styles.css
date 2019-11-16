@@ -1,0 +1,47 @@
+.navbar, .card{
+  background-color: #bfcce0;
+}
+
+.navbar-brand{
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+}
+
+#main{
+  margin-top: 100px
+}
+
+#register-dropdown, #login-dropdown, .navbar-nav{
+  margin: 0 100px;
+}
+
+.navbar-nav a, #register-dropdown button, #login-dropdown button, #create-post, #post-btn, #profile-btn, #logout{
+  color: #8f36f5;
+  background-color: #bfcce0;
+  margin: 10px;
+}
+
+.form-group input{
+ width: 300px !important;
+ height: 40px !important;
+}
+
+#displayUser{
+  font-size: 30px;
+  color: #8f36f5;
+  margin-right: 80px;
+}
+
+#post-description{
+ width: 400px !important;
+ height: 350px !important;
+}
+ 
+#post-title{
+  width: 400px !important;
+} 
+
+body{
+  font-family: 'Montserrat', sans-serif;
+}
