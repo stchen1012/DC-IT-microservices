@@ -334,8 +334,9 @@ function login(mail, pwd){
           }
         }
 
-          console.log(document.getElementById("create-comment"), 'create comment node');
-         document.getElementById("create-comment").addEventListener('click', function(e){
+        console.log(document.getElementById("create-comment"), 'create comment node');
+        //console.log("im right here")
+        document.getElementById("create-comment").addEventListener('click', function(e){
         e.preventDefault();
         commentTextArea = document.getElementById("comment-text-area")
         text = commentTextArea.value;
@@ -430,31 +431,14 @@ function postEventListener(){
  let postList = document.querySelectorAll(".listener");
  for(let i=0; i< postList.length; i++){
    postList[i].addEventListener("click", function(){
-    //  console.log("event listener");
-    //  console.log(event.target.id);\
+
      sessionStorage.setItem("PostId", event.target.id);
      sessionStorage.setItem("postTitle", event.target.title);
      sessionStorage.setItem("postDesc", event.target.cardText);
        
-     console.log("value" + event.target.value)
-     console.log("test" + event.target.nodeName);
-
-
-    //  console.log(event.target.getItem);
-    // let postUser = event.target.sessionStorage.getItem("postUserName");
-    // let postUserName = event.sessionStorage.target.getItem("postUserName");
-    // console.log(postUserName);
-    // console.log(postUser);
-    //  console.log("card title" + event.target.title)
-    //  console.log("class desc " + event.target.cardText);
-    //  console.log("common text" + event.target.commentTextArea);
-    //  console.log("inner html" + event.target.innerHTML);
-    //  console.log(event.target.response);
-    //  console.log(event.target.)
-    //  sessionStorage.setItem("postTitle", event.target.)
      getCommentsByPostId(event.target.id)
    
-    //  return event.target.id;
+
    });
  }
 };
@@ -495,7 +479,7 @@ function delComment(commentId){
   console.log("comment Id: " + id);
   let bearer_token = sessionStorage.getItem("token")
   let bearer = 'Bearer ' + bearer_token;
-  fetch(`http://thesi.generalassemb.ly:8080/comment/${commentId}`, {
+  fetch(`http://localhost:8080/comment/${commentId}`, {
     method: 'DELETE',
 
     headers:{
