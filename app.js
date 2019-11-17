@@ -528,7 +528,8 @@ function createProfile(addMail, mobile, address){
   },
 
   body: JSON.stringify({
-        "additionalEmail": addMail,
+        // "additionalEmail": addMail,
+        "email": addMail,
         "mobile": mobile,
         "address": address,
            })
